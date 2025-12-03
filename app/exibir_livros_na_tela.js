@@ -1,8 +1,9 @@
 export function exibirLivrosNaTela(listaDeLivros, elementoParaInserirLivros) {
     listaDeLivros.forEach((livro) => {
+        let disponibilidade = verificarDisponibilidade(livro);
         elementoParaInserirLivros.innerHTML += `
              <div class="livro">
-              <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
+              <img class="${disponibilidade}" src="${livro.imagem}" alt="${livro.alt}" />
               <h2 class="livro__titulo">${livro.titulo}</h2>
               <p class="livro__descricao">${livro.autor}</p>
               <p class="livro__preco" id="preco">${livro.preco.toFixed(2)}</p>
@@ -11,6 +12,14 @@ export function exibirLivrosNaTela(listaDeLivros, elementoParaInserirLivros) {
               </div>
             </div> `
     })
+}
+
+function verificarDisponibilidade(livro) {
+    if (livro.quantidade > 0) {
+        return "livro__imagems"
+    } else {
+        return "livro__imagems indisponivel"
+    }
 }
 
 export default exibirLivrosNaTela;
