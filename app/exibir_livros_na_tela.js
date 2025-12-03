@@ -1,6 +1,4 @@
-const elementoParaInserirLivros = document.getElementById('livros');
-
-export function exibirLivrosNaTela(listaDeLivros) {
+export function exibirLivrosNaTela(listaDeLivros, elementoParaInserirLivros) {
     listaDeLivros.forEach((livro) => {
         elementoParaInserirLivros.innerHTML += `
              <div class="livro">
